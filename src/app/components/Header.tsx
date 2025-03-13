@@ -25,21 +25,21 @@ function Header() {
   );
 }
 
-type HeaderButtonProps = {
-  to: string;
-  text: string;
-};
+// type HeaderButtonProps = {
+//   to: string;
+//   text: string;
+// };
 
-function HeaderButton({ to, text }: HeaderButtonProps) {
-  return (
-    <Grid2 size={1} display="flex" justifyContent="center">
-      <Link href={to}>
-        <Typography sx={{ opacity: ".6", "&:hover": { opacity: 1 } }}>
-          {text}
-        </Typography>
-      </Link>
-    </Grid2>
-  );
-}
+// function HeaderButton({ to, text }: HeaderButtonProps) {
+//   return (
+//     <Grid2 size={1} display="flex" justifyContent="center">
+//       <Link href={to}>
+//         <Typography sx={{ opacity: ".6", "&:hover": { opacity: 1 } }}>
+//           {text}
+//         </Typography>
+//       </Link>
+//     </Grid2>
+//   );
+// }
 
 export default Header;
