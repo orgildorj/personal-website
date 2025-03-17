@@ -6,7 +6,7 @@ function Header() {
     <Container>
       <Grid2
         container
-        paddingY={3}
+        paddingY={2}
         alignItems="center"
         justifyContent="space-between"
       >

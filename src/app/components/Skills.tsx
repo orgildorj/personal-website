@@ -1,3 +1,5 @@
+"use client";
+
 import { Box, Container, Typography } from "@mui/material";
 import spring from "../pictures/Spring Java.svg";
 import python from "../pictures/python.svg";
@@ -10,13 +12,35 @@ import iot from "../pictures/iot.svg";
 import express from "../pictures/express.svg";
 import nextjs from "../pictures/nextjs.svg";
 import Image from "next/image";
+import { motion } from "motion/react";
 
 function Skills() {
   return (
-    <Box bgcolor="#111827" paddingY={8}>
+    <Box
+      // bgcolor="#111827"
+      height="100vh"
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      justifyContent="center"
+      paddingY={8}
+    >
       <Container>
-        <Box display="flex" flexDirection="column" alignItems="center">
-          <Typography fontSize={40} fontWeight="bold">
+        <Box
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          sx={{ overflow: "hidden" }}
+        >
+          <Typography
+            fontSize={40}
+            fontWeight="bold"
+            component={motion.div}
+            initial={{ x: "-100%", opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ amount: 0.2 }}
+            transition={{ duration: 2, ease: "easeOut" }}
+          >
             Technical Skills
           </Typography>
           <Typography
@@ -24,6 +48,11 @@ function Skills() {
             sx={{ opacity: ".6" }}
             width="50%"
             textAlign="center"
+            component={motion.div}
+            initial={{ x: "100%", opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ amount: 0.2 }}
+            transition={{ duration: 2, ease: "easeOut" }}
           >
             This is an overview of my technical skills. Of course, I am always
             open for learning new skills.
@@ -34,6 +63,11 @@ function Skills() {
             justifyContent="space-between"
             width="100%"
             marginY={4}
+            component={motion.div}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ amount: 0.2 }}
+            transition={{ duration: 2, ease: "easeOut" }}
           >
             <SkillComponent imageSrc={spring} desc="Spring" />
             <SkillComponent imageSrc={python} desc="Python" />
@@ -47,6 +81,11 @@ function Skills() {
             justifyContent="space-between"
             width="100%"
             marginY={4}
+            component={motion.div}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ amount: 0.2 }}
+            transition={{ duration: 2, ease: "easeOut" }}
           >
             <SkillComponent imageSrc={mongodb} desc="MongoDB" />
             <SkillComponent imageSrc={solidity} desc="Solidity" />

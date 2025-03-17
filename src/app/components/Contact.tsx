@@ -2,10 +2,18 @@ import { Box, Container, Grid2, Typography } from "@mui/material";
 import Image from "next/image";
 import email_logo from "../pictures/email_logo.png";
 import contact_bg from "../pictures/contact_bg.png";
+import prof_pic from "../pictures/contact-prof-pic.png";
 
 function Contact() {
   return (
-    <Box marginY={12}>
+    <Box
+      height="100vh"
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      justifyContent="center"
+      bgcolor="#111827"
+    >
       <Container>
         <Grid2 container>
           <Grid2 size={6}>
@@ -72,7 +80,15 @@ function Contact() {
                 display="flex"
                 alignItems="center"
                 justifyContent="center"
-              ></Box>
+              >
+                <Image
+                  src={prof_pic}
+                  alt=""
+                  width={60}
+                  height={0}
+                  style={{ borderRadius: "50%" }}
+                />
+              </Box>
             </Box>
           </Grid2>
         </Grid2>

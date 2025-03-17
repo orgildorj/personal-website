@@ -1,14 +1,41 @@
+"use client";
+
 import { Box, Container, Grid2, Typography } from "@mui/material";
 import tum from "../pictures/tum.svg";
 import kaist from "../pictures/kaist.svg";
 import Image from "next/image";
+import { motion } from "motion/react";
 
 function Education() {
   return (
-    <Box marginY={8}>
+    <Box
+      marginY={8}
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      justifyContent="center"
+      component={motion.div}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ amount: 0.2 }}
+      transition={{ duration: 2, ease: "easeOut" }}
+    >
       <Container>
-        <Box display="flex" flexDirection="column" alignItems="center">
-          <Typography fontSize={40} fontWeight="bold">
+        <Box
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="center"
+        >
+          <Typography
+            fontSize={40}
+            fontWeight="bold"
+            component={motion.div}
+            initial={{ x: "-100%", opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ amount: 0.2 }}
+            transition={{ duration: 2, ease: "easeOut" }}
+          >
             Education
           </Typography>
           <Typography
@@ -17,11 +44,32 @@ function Education() {
             width="60%"
             textAlign="center"
             marginBottom={4}
+            component={motion.div}
+            initial={{ x: "100%", opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ amount: 0.2 }}
+            transition={{ duration: 2, ease: "easeOut" }}
           >
             Summary of my academic journey.
           </Typography>
-          <Box sx={{ width: 8, height: 10, backgroundColor: "gray" }} />
-          <Grid2 container columns={5} width="100%">
+          <Box
+            sx={{ width: 4, height: 10, backgroundColor: "gray" }}
+            component={motion.div}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ amount: 0.2 }}
+            transition={{ duration: 10, ease: "easeOut" }}
+          />
+          <Grid2
+            container
+            columns={5}
+            width="100%"
+            component={motion.div}
+            initial={{ x: "-100%", opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ amount: 0.2 }}
+            transition={{ duration: 2, ease: "easeOut" }}
+          >
             <Grid2
               size={2}
               display="flex"
@@ -60,8 +108,18 @@ function Education() {
               <LogoCircle logoSrc={tum} />
             </Grid2>
           </Grid2>
-          <Box sx={{ width: 8, height: 20, backgroundColor: "gray" }} />
-          <Grid2 container columns={5} width="100%" flexDirection="row-reverse">
+          <Box sx={{ width: 4, height: 200, backgroundColor: "gray" }} />
+          <Grid2
+            container
+            columns={5}
+            width="100%"
+            flexDirection="row-reverse"
+            component={motion.div}
+            initial={{ x: "100%", opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ amount: 0.2 }}
+            transition={{ duration: 2, ease: "easeOut" }}
+          >
             <Grid2
               size={2}
               display="flex"
@@ -100,8 +158,17 @@ function Education() {
               <LogoCircle logoSrc={kaist} />
             </Grid2>
           </Grid2>
-          <Box sx={{ width: 8, height: 20, backgroundColor: "gray" }} />
-          <Grid2 container columns={5} width="100%">
+          <Box sx={{ width: 4, height: 200, backgroundColor: "gray" }} />
+          <Grid2
+            container
+            columns={5}
+            width="100%"
+            component={motion.div}
+            initial={{ x: "-100%", opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ amount: 0.2 }}
+            transition={{ duration: 2, ease: "easeOut" }}
+          >
             <Grid2
               size={2}
               display="flex"
@@ -140,7 +207,7 @@ function Education() {
               <LogoCircle logoSrc={tum} />
             </Grid2>
           </Grid2>
-          <Box sx={{ width: 8, height: 10, backgroundColor: "gray" }} />
+          <Box sx={{ width: 4, height: 10, backgroundColor: "gray" }} />
         </Box>
       </Container>
     </Box>

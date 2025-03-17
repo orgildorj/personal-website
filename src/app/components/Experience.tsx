@@ -1,14 +1,33 @@
+"use client";
+
 import { Box, Container, Grid2, Typography } from "@mui/material";
 import Image, { StaticImageData } from "next/image";
 import bsd_energy from "../pictures/bsd_energy.png";
 import itestra from "../pictures/itestra.png";
+import { motion } from "motion/react";
 
 function Experience() {
   return (
-    <Box bgcolor="#111827" paddingY={8}>
+    <Box
+      // bgcolor="#111827"
+      height="100vh"
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      justifyContent="center"
+      paddingY={8}
+    >
       <Container>
         <Box display="flex" flexDirection="column" alignItems="center">
-          <Typography fontSize={40} fontWeight="bold">
+          <Typography
+            fontSize={40}
+            fontWeight="bold"
+            component={motion.div}
+            initial={{ x: "-100%", opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ amount: 0.2 }}
+            transition={{ duration: 2, ease: "easeOut" }}
+          >
             Job Experence so far
           </Typography>
           <Typography
@@ -17,6 +36,11 @@ function Experience() {
             width="50%"
             textAlign="center"
             marginBottom={2}
+            component={motion.div}
+            initial={{ x: "100%", opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ amount: 0.2 }}
+            transition={{ duration: 2, ease: "easeOut" }}
           >
             I have limited job experience but am eager to learn and grow. I am
             open to new opportunities and excited to develop new skills.
@@ -26,12 +50,22 @@ function Experience() {
             position="Technical Support"
             desc="Maintenance of internal company systems, network and monitoring systems, drawing diagrams for photovoltaic systems and maintaining internal departmental documentation."
             timePeriod="Nov 2023 - Jul 2024"
+            component={motion.div}
+            initial={{ x: "-100%", opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ amount: 0.2 }}
+            transition={{ duration: 2, ease: "easeOut" }}
           />
           <ExperenceItem
             logoSrc={itestra}
             position="Backend Working Student"
             desc="Worked on a project that involved developing a Java Spring software program based on an old C-based program."
             timePeriod="Nov 2022 - Feb 2023"
+            component={motion.div}
+            initial={{ x: "100%", opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ amount: 0.2 }}
+            transition={{ duration: 2, ease: "easeOut" }}
           />
         </Box>
       </Container>
@@ -51,6 +85,7 @@ function ExperenceItem({
   position,
   desc,
   timePeriod,
+  ...rest
 }: ExperenceItemProps) {
   return (
     <Box
@@ -60,6 +95,7 @@ function ExperenceItem({
       padding={4}
       marginY={3}
       sx={{ boxShadow: "0px 25px 25px rgba(0, 0, 0, 0.15)" }}
+      {...rest}
     >
       <Grid2 container columns={24} flexDirection="row">
         <Grid2 size={7}>
