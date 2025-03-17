@@ -50,22 +50,14 @@ function Experience() {
             position="Technical Support"
             desc="Maintenance of internal company systems, network and monitoring systems, drawing diagrams for photovoltaic systems and maintaining internal departmental documentation."
             timePeriod="Nov 2023 - Jul 2024"
-            component={motion.div}
-            initial={{ x: "-100%", opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            viewport={{ amount: 0.2 }}
-            transition={{ duration: 2, ease: "easeOut" }}
+            initialX="-100%"
           />
           <ExperenceItem
             logoSrc={itestra}
             position="Backend Working Student"
             desc="Worked on a project that involved developing a Java Spring software program based on an old C-based program."
             timePeriod="Nov 2022 - Feb 2023"
-            component={motion.div}
-            initial={{ x: "100%", opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            viewport={{ amount: 0.2 }}
-            transition={{ duration: 2, ease: "easeOut" }}
+            initialX="100%"
           />
         </Box>
       </Container>
@@ -78,6 +70,7 @@ type ExperenceItemProps = {
   position: string;
   desc: string;
   timePeriod: string;
+  initialX: string;
 };
 
 function ExperenceItem({
@@ -85,7 +78,7 @@ function ExperenceItem({
   position,
   desc,
   timePeriod,
-  ...rest
+  initialX,
 }: ExperenceItemProps) {
   return (
     <Box
@@ -95,7 +88,11 @@ function ExperenceItem({
       padding={4}
       marginY={3}
       sx={{ boxShadow: "0px 25px 25px rgba(0, 0, 0, 0.15)" }}
-      {...rest}
+      component={motion.div}
+      initial={{ x: initialX, opacity: 0 }}
+      whileInView={{ x: 0, opacity: 1 }}
+      viewport={{ amount: 0.2 }}
+      transition={{ duration: 2, ease: "easeOut" }}
     >
       <Grid2 container columns={24} flexDirection="row">
         <Grid2 size={7}>
