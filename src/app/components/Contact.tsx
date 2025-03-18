@@ -1,19 +1,14 @@
 "use client";
 
-import {
-  Box,
-  Container,
-  Grid2,
-  Typography,
-  useMediaQuery,
-} from "@mui/material";
+import { Box, Container, Grid2, Typography } from "@mui/material";
 import Image from "next/image";
 import email_logo from "../pictures/email_logo.png";
 import contact_bg from "../pictures/contact_bg.png";
 import prof_pic from "../pictures/contact-prof-pic.png";
+import IsTabletOrLarger from "../hooks/IsTabletOrLarger";
 
 function Contact() {
-  const isTabletOrLarger = useMediaQuery("(min-width:768px)");
+  const isTabletOrLarger = IsTabletOrLarger();
 
   return (
     <Box

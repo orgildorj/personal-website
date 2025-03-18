@@ -1,25 +1,18 @@
 "use client";
 
-import {
-  Box,
-  Container,
-  Grid2,
-  Typography,
-  useMediaQuery,
-} from "@mui/material";
+import { Box, Container, Grid2, Typography } from "@mui/material";
 import Image from "next/image";
+import { styles } from "./styles.js";
+import { motionProps } from "./motionProps";
 import mongolia_flag from "../pictures/mongolia_flag.png";
 // import selfie from "../pictures/selfie.png";
-import self_portrait from "../pictures/self_portrait.png";
+// import self_portrait from "../pictures/self_portrait.png";
 import self_portrait2 from "../pictures/self_portrait(1).png";
-
-import { motion } from "motion/react";
 import { useState } from "react";
+import IsTabletOrLarger from "../hooks/IsTabletOrLarger";
 
 function Hero() {
-  const isLaptopOrLarger = useMediaQuery("(min-width:1024px)");
-  const isTabletOrLarger = useMediaQuery("(min-width:768px)");
-
+  const isTabletOrLarger = IsTabletOrLarger();
   const [scale, setScale] = useState(1);
   const [imageBorder, setImageBorder] = useState("white");
 
@@ -29,30 +22,28 @@ function Hero() {
         container
         display="flex"
         alignItems="center"
-        sx={{ md: { height: "100vh", transform: "translateY(-5%)" } }}
+        sx={{ height: { md: "100vh" }, transform: { md: "translateY(-5%)" } }}
       >
         <Grid2
           size={{ xs: 12, md: 7 }}
-          component={motion.div}
-          initial={{ x: "-100%", opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          viewport={isLaptopOrLarger ? { amount: 0.2 } : undefined}
-          transition={{ duration: 2, ease: "easeOut" }}
+          {...motionProps.fromLeft}
+          viewport={isTabletOrLarger ? { amount: 0.2 } : undefined}
           marginBottom={2}
         >
-          <Typography fontSize={40}>
+          <Typography fontSize={40} marginBottom={1}>
             Hi, I am
             <br />
             <b>Orgil Dorj!</b>
           </Typography>
-          <Typography fontSize={18} sx={{ opacity: ".6" }} marginY={2.5}>
+          <Typography sx={styles.sectionSubTitle}>
             I’m currently studying for a master’s degree in Information Systems
             at Technical University of Munich and now in my last semester. I am
             looking for a master’s thesis topic as well as a working student
             job. My goal is to work as a full-stack developer in the future.
             However, I am also open to other possibilities.
           </Typography>
-          <Box>
+
+          <Box marginY={2}>
             <Typography fontSize={12} sx={{ opacity: ".6" }}>
               NATIONALITY
             </Typography>
@@ -73,11 +64,8 @@ function Hero() {
           size={{ xs: 12, md: 5 }}
           display="flex"
           justifyContent="center"
-          component={motion.div}
-          initial={{ x: "100%", opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          viewport={isLaptopOrLarger ? { amount: 0.4 } : undefined}
-          transition={{ duration: 2, ease: "easeOut" }}
+          {...motionProps.fromRight}
+          viewport={isTabletOrLarger ? { amount: 0.2 } : undefined}
         >
           <Image
             src={self_portrait2}
