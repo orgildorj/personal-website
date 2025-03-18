@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container, Typography, useMediaQuery } from "@mui/material";
 import spring from "../pictures/Spring Java.svg";
 import python from "../pictures/python.svg";
 import react from "../pictures/react.svg";
@@ -15,6 +15,8 @@ import Image from "next/image";
 import { motion } from "motion/react";
 
 function Skills() {
+  const isLaptopOrLarger = useMediaQuery("(min-width:1024px)");
+
   return (
     <Box
       // bgcolor="#111827"
@@ -26,19 +28,14 @@ function Skills() {
       paddingY={8}
     >
       <Container>
-        <Box
-          display="flex"
-          flexDirection="column"
-          alignItems="center"
-          sx={{ overflow: "hidden" }}
-        >
+        <Box display="flex" flexDirection="column" alignItems="center">
           <Typography
             fontSize={40}
             fontWeight="bold"
             component={motion.div}
             initial={{ x: "-100%", opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
-            viewport={{ amount: 0.2 }}
+            viewport={isLaptopOrLarger ? { amount: 0.2 } : undefined}
             transition={{ duration: 2, ease: "easeOut" }}
           >
             Technical Skills
@@ -46,12 +43,12 @@ function Skills() {
           <Typography
             fontSize={20}
             sx={{ opacity: ".6" }}
-            width="50%"
+            width={isLaptopOrLarger ? "50%" : "100%"}
             textAlign="center"
             component={motion.div}
             initial={{ x: "100%", opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
-            viewport={{ amount: 0.2 }}
+            viewport={isLaptopOrLarger ? { amount: 0.2 } : undefined}
             transition={{ duration: 2, ease: "easeOut" }}
           >
             This is an overview of my technical skills. Of course, I am always
@@ -66,7 +63,7 @@ function Skills() {
             component={motion.div}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            viewport={{ amount: 0.2 }}
+            viewport={isLaptopOrLarger ? { amount: 0.2 } : undefined}
             transition={{ duration: 2, ease: "easeOut" }}
           >
             <SkillComponent imageSrc={spring} desc="Spring" />
@@ -84,7 +81,7 @@ function Skills() {
             component={motion.div}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            viewport={{ amount: 0.2 }}
+            viewport={isLaptopOrLarger ? { amount: 0.2 } : undefined}
             transition={{ duration: 2, ease: "easeOut" }}
           >
             <SkillComponent imageSrc={mongodb} desc="MongoDB" />

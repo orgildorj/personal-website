@@ -1,28 +1,37 @@
 "use client";
 
-import { Box, Container, Grid2, Typography } from "@mui/material";
+import {
+  Box,
+  Container,
+  Grid2,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import Image from "next/image";
 import mongolia_flag from "../pictures/mongolia_flag.png";
 import selfie from "../pictures/selfie.svg";
 import { motion } from "motion/react";
 
 function Hero() {
+  const isLaptopOrLarger = useMediaQuery("(min-width:1024px)");
+  const isTabletOrLarger = useMediaQuery("(min-width:768px)");
+
   return (
     <Container>
       <Grid2
         container
-        height="100vh"
         display="flex"
         alignItems="center"
-        sx={{ transform: "translateY(-5%)" }}
+        sx={{ md: { height: "100vh", transform: "translateY(-5%)" } }}
       >
         <Grid2
-          size={7}
+          size={{ xs: 12, md: 7 }}
           component={motion.div}
           initial={{ x: "-100%", opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
-          viewport={{ amount: 0.2 }}
+          viewport={isLaptopOrLarger ? { amount: 0.2 } : undefined}
           transition={{ duration: 2, ease: "easeOut" }}
+          marginBottom={2}
         >
           <Typography fontSize={40}>
             Hi, I am
@@ -54,9 +63,9 @@ function Hero() {
           </Box>
         </Grid2>
         <Grid2
-          size={5}
+          size={{ xs: 12, md: 5 }}
           display="flex"
-          justifyContent="flex-end"
+          justifyContent="center"
           component={motion.div}
           initial={{ x: "100%", opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
@@ -66,7 +75,7 @@ function Hero() {
           <Image
             src={selfie}
             alt="selfie"
-            width={440}
+            width={isTabletOrLarger ? 440 : 330}
             style={{
               boxShadow: "20px 20px 0 rgba(17, 24, 39, 1)",
             }}

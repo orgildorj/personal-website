@@ -1,10 +1,20 @@
-import { Box, Container, Grid2, Typography } from "@mui/material";
+"use client";
+
+import {
+  Box,
+  Container,
+  Grid2,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import Image from "next/image";
 import email_logo from "../pictures/email_logo.png";
 import contact_bg from "../pictures/contact_bg.png";
 import prof_pic from "../pictures/contact-prof-pic.png";
 
 function Contact() {
+  const isTabletOrLarger = useMediaQuery("(min-width:768px)");
+
   return (
     <Box
       height="100vh"
@@ -15,8 +25,21 @@ function Contact() {
       bgcolor="#111827"
     >
       <Container>
-        <Grid2 container>
-          <Grid2 size={6}>
+        <Grid2
+          container
+          columns={isTabletOrLarger ? 12 : 6}
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="center"
+        >
+          <Grid2
+            size={6}
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            justifyContent="center"
+          >
             <Typography fontSize={40} fontWeight="bold">
               Contact
             </Typography>
