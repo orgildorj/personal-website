@@ -18,7 +18,9 @@ function Header() {
           </Link>
         </Grid2>
         <Grid2 size={6}>
-          <Grid2 container columns={6} justifyContent="flex-end"></Grid2>
+          <Grid2 container columns={6} justifyContent="flex-end">
+            {/* <HeaderButton to="/writing" text="Writing" /> */}
+          </Grid2>
         </Grid2>
       </Grid2>
     </Container>
@@ -34,9 +36,7 @@ function Header() {
 //   return (
 //     <Grid2 size={1} display="flex" justifyContent="center">
 //       <Link href={to}>
-//         <Typography sx={{ opacity: ".6", "&:hover": { opacity: 1 } }}>
-//           {text}
-//         </Typography>
+//         <Typography>{text}</Typography>
 //       </Link>
 //     </Grid2>
 //   );

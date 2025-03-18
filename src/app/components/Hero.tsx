@@ -11,10 +11,14 @@ import Image from "next/image";
 import mongolia_flag from "../pictures/mongolia_flag.png";
 import selfie from "../pictures/selfie.png";
 import { motion } from "motion/react";
+import { useState } from "react";
 
 function Hero() {
   const isLaptopOrLarger = useMediaQuery("(min-width:1024px)");
   const isTabletOrLarger = useMediaQuery("(min-width:768px)");
+
+  const [scale, setScale] = useState(1);
+  const [imageBorder, setImageBorder] = useState("white");
 
   return (
     <Container>
@@ -78,7 +82,17 @@ function Hero() {
             width={isTabletOrLarger ? 440 : 330}
             style={{
               boxShadow: "20px 20px 0 rgba(17, 24, 39, 1)",
-              border: "1px solid white",
+              border: `1px solid ${imageBorder}`,
+              transform: `scale(${scale})`,
+              transition: "transform 0.3s ease-out",
+            }}
+            onMouseEnter={() => {
+              setScale(1.01);
+              setImageBorder("#7686A7");
+            }}
+            onMouseLeave={() => {
+              setScale(1);
+              setImageBorder("white");
             }}
           />
         </Grid2>
