@@ -73,7 +73,7 @@ function Hero() {
           component={motion.div}
           initial={{ x: "100%", opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
-          viewport={{ amount: 0.4 }}
+          viewport={isLaptopOrLarger ? { amount: 0.4 } : undefined}
           transition={{ duration: 2, ease: "easeOut" }}
         >
           <Image
