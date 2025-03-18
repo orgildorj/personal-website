@@ -113,7 +113,7 @@ function Contact() {
                   alt=""
                   width={60}
                   height={0}
-                  style={{ borderRadius: "50%" }}
+                  style={{ borderRadius: "50%", overflow: "hidden" }}
                 />
               </Box>
             </Box>
