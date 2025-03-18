@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import mongolia_flag from "../pictures/mongolia_flag.png";
-import selfie from "../pictures/selfie.svg";
+import selfie from "../pictures/selfie.png";
 import { motion } from "motion/react";
 
 function Hero() {
@@ -78,6 +78,7 @@ function Hero() {
             width={isTabletOrLarger ? 440 : 330}
             style={{
               boxShadow: "20px 20px 0 rgba(17, 24, 39, 1)",
+              border: "1px solid white",
             }}
           />
         </Grid2>
