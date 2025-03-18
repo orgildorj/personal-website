@@ -29,7 +29,7 @@ function Contact() {
           container
           columns={isTabletOrLarger ? 12 : 6}
           display="flex"
-          flexDirection="column"
+          flexDirection="row"
           alignItems="center"
           justifyContent="center"
         >
@@ -37,14 +37,18 @@ function Contact() {
             size={6}
             display="flex"
             flexDirection="column"
-            alignItems="center"
+            alignItems={isTabletOrLarger ? undefined : "center"}
             justifyContent="center"
           >
             <Typography fontSize={40} fontWeight="bold">
               Contact
             </Typography>
-            <Typography fontSize={18} sx={{ opacity: ".6" }} marginY={8}>
-              You can contact me via the two contacts below.
+            <Typography
+              fontSize={18}
+              sx={{ opacity: ".6" }}
+              marginY={isTabletOrLarger ? 8 : 2}
+            >
+              You can contact me via my email.
             </Typography>
             <Box marginY={4} display="flex" columnGap={4}>
               <Image src={email_logo} alt="email" width={70} height={0} />
