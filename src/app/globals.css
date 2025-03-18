@@ -3,6 +3,12 @@
   --foreground: #ffffff;
 }
 
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
