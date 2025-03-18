@@ -9,7 +9,10 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import mongolia_flag from "../pictures/mongolia_flag.png";
-import selfie from "../pictures/selfie.png";
+// import selfie from "../pictures/selfie.png";
+import self_portrait from "../pictures/self_portrait.png";
+import self_portrait2 from "../pictures/self_portrait(1).png";
+
 import { motion } from "motion/react";
 import { useState } from "react";
 
@@ -77,9 +80,9 @@ function Hero() {
           transition={{ duration: 2, ease: "easeOut" }}
         >
           <Image
-            src={selfie}
+            src={self_portrait2}
             alt="selfie"
-            width={isTabletOrLarger ? 440 : 330}
+            width={isTabletOrLarger ? 350 : 330}
             style={{
               boxShadow: "20px 20px 0 rgba(17, 24, 39, 1)",
               border: `1px solid ${imageBorder}`,

@@ -17,12 +17,13 @@ function Contact() {
 
   return (
     <Box
-      height="100vh"
+      // height="100vh"
       display="flex"
       flexDirection="column"
       alignItems="center"
       justifyContent="center"
       bgcolor="#111827"
+      paddingY={8}
     >
       <Container>
         <Grid2
@@ -46,7 +47,7 @@ function Contact() {
             <Typography
               fontSize={18}
               sx={{ opacity: ".6" }}
-              marginY={isTabletOrLarger ? 8 : 2}
+              marginY={isTabletOrLarger ? 4 : 2}
             >
               You can contact me via my email.
             </Typography>
@@ -69,7 +70,11 @@ function Contact() {
             alignItems="center"
             position="relative"
           >
-            <Image src={contact_bg} alt="" style={{ position: "absolute" }} />
+            <Image
+              src={contact_bg}
+              alt=""
+              style={{ position: "absolute", height: "100%" }}
+            />
             <Box
               width={259}
               height={121}
@@ -113,7 +118,7 @@ function Contact() {
                   alt=""
                   width={60}
                   height={0}
-                  style={{ borderRadius: "50%", overflow: "hidden" }}
+                  style={{ borderRadius: "50%" }}
                 />
               </Box>
             </Box>
