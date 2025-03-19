@@ -1,14 +1,39 @@
 "use client";
 
-import { Box, Container, Grid2, Typography } from "@mui/material";
+import {
+  Box,
+  Container,
+  Grid2,
+  IconButton,
+  Tooltip,
+  Typography,
+} from "@mui/material";
 import Image from "next/image";
-import email_logo from "../pictures/email_logo.png";
-import contact_bg from "../pictures/contact_bg.png";
+// import email_logo from "../pictures/email_logo.png";
+import contact_bg from "../pictures/contact_bg_black.png";
 import prof_pic from "../pictures/contact-prof-pic.png";
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
+import ContentCopyOutlinedIcon from "@mui/icons-material/ContentCopyOutlined";
 import IsTabletOrLarger from "../hooks/IsTabletOrLarger";
+import { styles } from "./styles";
+import { useState } from "react";
 
 function Contact() {
   const isTabletOrLarger = IsTabletOrLarger();
+
+  const [copied, setCopied] = useState(false);
+
+  const email: string = "orgil.dorj720@gmail.com";
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500); // Reset after 1.5s
+    } catch (error) {
+      console.error("Failed to copy:", error);
+    }
+  };
 
   return (
     <Box
@@ -17,7 +42,7 @@ function Contact() {
       flexDirection="column"
       alignItems="center"
       justifyContent="center"
-      bgcolor="#111827"
+      bgcolor={styles.lightGray}
       paddingY={8}
     >
       <Container>
@@ -39,29 +64,23 @@ function Contact() {
             <Typography fontSize={40} fontWeight="bold">
               Contact
             </Typography>
-            <Typography
-              fontSize={18}
-              sx={{ opacity: ".6" }}
-              marginY={isTabletOrLarger ? 4 : 2}
-            >
-              You can contact me via my email.
-            </Typography>
-            <Box marginY={4} display="flex" columnGap={4}>
-              <Image src={email_logo} alt="email" width={70} height={0} />
-              <Box>
-                <Typography fontSize={16} sx={{ opacity: ".6" }}>
-                  Email
-                </Typography>
-                <Typography fontSize={20} fontWeight={550}>
-                  orgil.dorj720@gmail.com
-                </Typography>
-              </Box>
+
+            <Box marginY={2} display="flex" columnGap={2} alignItems="center">
+              <EmailOutlinedIcon />
+
+              <Typography fontSize={20}>orgil.dorj720@gmail.com</Typography>
+
+              <Tooltip title={copied ? "Copied!" : "Copy"}>
+                <IconButton onClick={handleCopy}>
+                  <ContentCopyOutlinedIcon />
+                </IconButton>
+              </Tooltip>
             </Box>
           </Grid2>
           <Grid2
             size={6}
             display="flex"
-            flexDirection="column"
+            flexDirection="row"
             alignItems="center"
             position="relative"
           >
@@ -74,7 +93,7 @@ function Contact() {
               width={259}
               height={121}
               borderRadius={2}
-              bgcolor="rgba(255, 255, 255, 0.05)"
+              bgcolor="#F5F5F5"
               display="flex"
               justifyContent="center"
               alignItems="center"
@@ -95,9 +114,6 @@ function Contact() {
               display="flex"
               alignItems="center"
               justifyContent="center"
-              position="relative"
-              bottom="-40%"
-              left="30%"
             >
               <Box
                 width={84}

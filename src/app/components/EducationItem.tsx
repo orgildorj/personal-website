@@ -1,13 +1,13 @@
 import { Box, Grid2, Typography } from "@mui/material";
 import { motionProps } from "./motionProps";
-import Image from "next/image";
 import IsTabletOrLarger from "../hooks/IsTabletOrLarger";
+import { styles } from "./styles";
 
 type EducationItemProps = {
   degree: string;
   uni: string;
   timePeriod: string;
-  logo: string;
+  timeCircleText: string;
   reverse: boolean;
 };
 
@@ -15,7 +15,7 @@ function EducationItem({
   degree,
   uni,
   timePeriod,
-  logo,
+  timeCircleText,
   reverse,
 }: EducationItemProps) {
   const isTabletOrLarger = IsTabletOrLarger();
@@ -23,14 +23,14 @@ function EducationItem({
   return (
     <Grid2
       container
-      columns={5}
+      columns={isTabletOrLarger ? 7 : 5}
       width="100%"
       {...(reverse ? motionProps.fromRight : motionProps.fromLeft)}
       viewport={isTabletOrLarger ? { amount: 0.2 } : undefined}
       flexDirection={reverse && isTabletOrLarger ? "row-reverse" : "row"}
     >
       <Grid2
-        size={isTabletOrLarger ? 2 : 4}
+        size={isTabletOrLarger ? 3 : 4}
         display="flex"
         justifyContent={
           isTabletOrLarger ? (reverse ? "flex-start" : "flex-end") : "center"
@@ -41,14 +41,18 @@ function EducationItem({
         <Grid2 container display="flex" alignItems="center">
           <Grid2 order={reverse ? 2 : 1}>
             <Box
-              bgcolor="#E7E7E7"
+              bgcolor={styles.lightGray}
               borderRadius="10px"
               height={{ xs: 90, md: 107 }}
-              width={{ xs: 260, md: 293 }}
+              width={{ xs: 260, md: 310 }}
               sx={{ boxShadow: "0px 4px 0px rgba(255, 255, 255, 0.5)" }}
               padding={{ xs: 1.5, md: 2.5 }}
             >
-              <Typography color="#1841C9" fontSize={18} fontWeight={550}>
+              <Typography
+                color={styles.secondaryColor}
+                fontSize={18}
+                fontWeight={550}
+              >
                 {degree}
               </Typography>
               <Typography color="black" fontSize={14} fontWeight={550}>
@@ -66,8 +70,8 @@ function EducationItem({
               sx={{
                 borderTop: "10px solid transparent",
                 borderBottom: "10px solid transparent",
-                borderLeft: reverse ? "" : "20px solid #E7E7E7",
-                borderRight: reverse ? "20px solid #E7E7E7" : "",
+                borderLeft: reverse ? "" : `20px solid ${styles.lightGray}`,
+                borderRight: reverse ? `20px solid ${styles.lightGray}` : "",
               }}
               display={isTabletOrLarger ? undefined : "none"}
             />
@@ -81,36 +85,30 @@ function EducationItem({
         alignItems="center"
         order={isTabletOrLarger ? 2 : 1}
       >
-        <LogoCircle logoSrc={logo} />
+        <TimeCirle text={timeCircleText} />
       </Grid2>
     </Grid2>
   );
 }
 
-type LogoCircleProp = {
-  logoSrc: string;
+type TimeCirleProp = {
+  text: string;
 };
 
-function LogoCircle({ logoSrc }: LogoCircleProp) {
-  const isTabletOrLarger = IsTabletOrLarger();
-
+function TimeCirle({ text }: TimeCirleProp) {
   return (
     <Box
-      width={{ xs: 70, md: 130 }}
-      height={{ xs: 70, md: 130 }}
+      width={{ xs: 70, md: 100 }}
+      height={{ xs: 70, md: 100 }}
       borderRadius="50%"
-      bgcolor="#E7E7E7"
       display="flex"
       alignItems="center"
       justifyContent="center"
-      sx={{ border: "5px solid gray" }}
+      sx={{ border: `2px solid ${styles.secondaryColor}` }}
     >
-      <Image
-        src={logoSrc}
-        alt=""
-        width={isTabletOrLarger ? 98 : 50}
-        height={0}
-      />
+      <Typography color={styles.secondaryColor} fontSize={24}>
+        {text}
+      </Typography>
     </Box>
   );
 }

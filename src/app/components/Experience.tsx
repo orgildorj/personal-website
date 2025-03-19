@@ -3,48 +3,36 @@
 import { Box, Container, Typography } from "@mui/material";
 import bsd_energy from "../pictures/bsd_energy.png";
 import itestra from "../pictures/itestra.png";
-import { motion } from "motion/react";
 import IsTabletOrLarger from "../hooks/IsTabletOrLarger";
 import ExperienceItem from "./ExperienceItem";
+import { styles } from "./styles";
+import { motionProps } from "./motionProps";
 
 function Experience() {
   const isTabletOrLarger = IsTabletOrLarger();
 
   return (
     <Box
-      // bgcolor="#111827"
-      height={isTabletOrLarger ? "100vh" : undefined}
       display="flex"
       flexDirection="column"
       alignItems="center"
       justifyContent="center"
-      paddingY={8}
     >
       <Container>
         <Box display="flex" flexDirection="column" alignItems="center">
           <Typography
-            fontSize={40}
-            fontWeight="bold"
-            component={motion.div}
-            initial={{ x: "-100%", opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
+            sx={styles.sectionTitle}
+            {...motionProps.fromLeft}
             viewport={isTabletOrLarger ? { amount: 0.2 } : undefined}
             transition={{ duration: 2, ease: "easeOut" }}
-            textAlign="center"
           >
-            Job Experence so far
+            Job Experience so far
           </Typography>
           <Typography
-            fontSize={20}
-            sx={{ opacity: ".6" }}
-            width={isTabletOrLarger ? "50%" : "100%"}
-            textAlign="center"
+            sx={styles.sectionSubTitle}
             marginBottom={2}
-            component={motion.div}
-            initial={{ x: "100%", opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
+            {...motionProps.fromRight}
             viewport={isTabletOrLarger ? { amount: 0.2 } : undefined}
-            transition={{ duration: 2, ease: "easeOut" }}
           >
             Summary of my job experiences so far.
           </Typography>
@@ -57,7 +45,7 @@ function Experience() {
           />
           <ExperienceItem
             logoSrc={itestra}
-            logoWidth={170}
+            logoWidth={150}
             position="Backend Working Student"
             desc="Worked on a project that involved developing a Java Spring software program based on an old C-based program."
             timePeriod="Nov 2022 - Feb 2023"

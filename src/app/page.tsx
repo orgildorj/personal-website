@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import Contact from "./components/Contact";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
@@ -7,13 +8,14 @@ import Skills from "./components/Skills";
 
 export default function Home() {
   return (
-    <>
+    <Box display="flex" flexDirection="column" rowGap={6}>
       <Hero />
-      <Languages />
       <Skills />
       <Education />
       <Experience />
+      <Languages />
+
       <Contact />
-    </>
+    </Box>
   );
 }

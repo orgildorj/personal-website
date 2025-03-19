@@ -1,8 +1,6 @@
 "use client";
 
 import { Box, Container, Grid2, Typography } from "@mui/material";
-import tum from "../pictures/tum.svg";
-import kaist from "../pictures/kaist.svg";
 import { styles } from "./styles";
 import { motionProps } from "./motionProps";
 import EducationItem from "./EducationItem";
@@ -46,25 +44,25 @@ function Education() {
             degree="Information Systems MSc"
             uni="Technical University of Munich"
             timePeriod="Oct 2022 - Current"
-            logo={tum}
+            timeCircleText="Now"
             reverse={false}
           />
-          <EducationItemLine height={isTabletOrLarger ? 200 : 100} />
+          <EducationItemLine height={isTabletOrLarger ? 50 : 100} />
 
           <EducationItem
             degree="Exchange Student"
             uni="KAIST School of Computing"
             timePeriod="Sep 2024 - Dec 2024"
-            logo={kaist}
+            timeCircleText="2024"
             reverse={true}
           />
-          <EducationItemLine height={isTabletOrLarger ? 200 : 100} />
+          <EducationItemLine height={isTabletOrLarger ? 50 : 100} />
 
           <EducationItem
             degree="Information Systems BSc"
             uni="Technical University of Munich"
             timePeriod="Oct 2019 - Aug 2022"
-            logo={tum}
+            timeCircleText="2022"
             reverse={false}
           />
           <EducationItemLine height={10} />
@@ -90,9 +88,9 @@ function EducationItemLine({ height }: EducationItemLineProps) {
       >
         <Box
           sx={{
-            width: 4,
+            width: 2,
             height: height,
-            backgroundColor: "gray",
+            backgroundColor: `${styles.secondaryColor}`,
           }}
         />
       </Grid2>

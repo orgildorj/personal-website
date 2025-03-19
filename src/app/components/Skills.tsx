@@ -22,12 +22,10 @@ function Skills() {
   return (
     <Box
       // bgcolor="#111827"
-      height="100vh"
       display="flex"
       flexDirection="column"
       alignItems="center"
       justifyContent="center"
-      paddingY={8}
     >
       <Container>
         <Box display="flex" flexDirection="column" alignItems="center">
@@ -54,7 +52,8 @@ function Skills() {
             flexWrap="wrap"
             justifyContent="space-between"
             width="100%"
-            marginY={4}
+            marginTop={6}
+            marginBottom={4}
             {...motionProps.appear}
             viewport={isTabletOrLarger ? { amount: 0.2 } : undefined}
           >
@@ -69,7 +68,6 @@ function Skills() {
             flexWrap="wrap"
             justifyContent="space-between"
             width="100%"
-            marginY={4}
             {...motionProps.appear}
             viewport={isTabletOrLarger ? { amount: 0.2 } : undefined}
           >

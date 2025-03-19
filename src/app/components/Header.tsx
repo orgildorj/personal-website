@@ -12,7 +12,7 @@ function Header() {
       >
         <Grid2 size={1}>
           <Link href="/">
-            <Typography fontSize={30} fontWeight="bold">
+            <Typography fontSize={30} fontWeight="bold" sx={{ opacity: 0.6 }}>
               {"<OD/>"}
             </Typography>
           </Link>

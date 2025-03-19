@@ -11,7 +11,7 @@ function Languages() {
 
   return (
     <Box
-      height="20vh"
+      // height="20vh"
       display="flex"
       flexDirection="column"
       justifyContent="center"

@@ -1,20 +1,20 @@
 "use client";
 
-import { Box, Container, Grid2, Typography } from "@mui/material";
-import Image from "next/image";
+import { Container, Grid2, Typography } from "@mui/material";
+// import Image from "next/image";
 import { styles } from "./styles.js";
 import { motionProps } from "./motionProps";
-import mongolia_flag from "../pictures/mongolia_flag.png";
+// import mongolia_flag from "../pictures/mongolia_flag.png";
 // import selfie from "../pictures/selfie.png";
 // import self_portrait from "../pictures/self_portrait.png";
-import self_portrait2 from "../pictures/self_portrait(1).png";
-import { useState } from "react";
+// import self_portrait2 from "../pictures/self_portrait(1).png";
+// import { useState } from "react";
 import IsTabletOrLarger from "../hooks/IsTabletOrLarger";
 
 function Hero() {
   const isTabletOrLarger = IsTabletOrLarger();
-  const [scale, setScale] = useState(1);
-  const [imageBorder, setImageBorder] = useState("white");
+  // const [scale, setScale] = useState(1);
+  // const [imageBorder, setImageBorder] = useState("white");
 
   return (
     <Container>
@@ -22,7 +22,7 @@ function Hero() {
         container
         display="flex"
         alignItems="center"
-        sx={{ height: { md: "100vh" }, transform: { md: "translateY(-5%)" } }}
+        sx={{ height: { md: "90vh" }, transform: { md: "translateY(-5%)" } }}
       >
         <Grid2
           size={{ xs: 12, md: 7 }}
@@ -30,20 +30,25 @@ function Hero() {
           viewport={isTabletOrLarger ? { amount: 0.2 } : undefined}
           marginBottom={2}
         >
-          <Typography fontSize={40} marginBottom={1}>
-            Hi, I am
-            <br />
-            <b>Orgil Dorj!</b>
+          <Typography fontSize={40}>Hi, I am</Typography>
+          <Typography
+            fontSize={40}
+            marginBottom={1}
+            fontWeight="bold"
+            color="#1f42b4"
+          >
+            Orgil Dorj
           </Typography>
           <Typography sx={styles.sectionSubTitle}>
-            I’m currently studying for a master’s degree in Information Systems
-            at Technical University of Munich and now in my last semester. I am
-            looking for a master’s thesis topic as well as a working student
-            job. My goal is to work as a full-stack developer in the future.
-            However, I am also open to other possibilities.
+            Thank you for visiting my site!
+            <br />I am a master’s student at TUM, seeking a company to
+            collaborate with on my master’s thesis. My goal is to build a career
+            as a full-stack developer. If you’re offering a working student
+            position or a master’s thesis opportunity, I’d love to connect and
+            explore how I can contribute to your team.
           </Typography>
 
-          <Box marginY={2}>
+          {/* <Box marginY={2}>
             <Typography fontSize={12} sx={{ opacity: ".6" }}>
               NATIONALITY
             </Typography>
@@ -58,9 +63,9 @@ function Hero() {
                 height={20}
               />
             </Box>
-          </Box>
+          </Box> */}
         </Grid2>
-        <Grid2
+        {/* <Grid2
           size={{ xs: 12, md: 5 }}
           display="flex"
           justifyContent="center"
@@ -86,7 +91,7 @@ function Hero() {
               setImageBorder("white");
             }}
           />
-        </Grid2>
+        </Grid2> */}
       </Grid2>
     </Container>
   );
