@@ -33,8 +33,9 @@ function Languages() {
       </Typography>
       <Box
         display="flex"
-        flexDirection="row"
+        flexDirection={isTabletOrLarger ? "row" : "column"}
         columnGap={5}
+        rowGap={2}
         marginY={2}
         {...motionProps.appear}
         viewport={isTabletOrLarger ? { amount: 0.2 } : undefined}

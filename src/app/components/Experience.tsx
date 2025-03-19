@@ -26,7 +26,7 @@ function Experience() {
             viewport={isTabletOrLarger ? { amount: 0.2 } : undefined}
             transition={{ duration: 2, ease: "easeOut" }}
           >
-            Job Experience so far
+            Experience
           </Typography>
           <Typography
             sx={styles.sectionSubTitle}
@@ -34,7 +34,7 @@ function Experience() {
             {...motionProps.fromRight}
             viewport={isTabletOrLarger ? { amount: 0.2 } : undefined}
           >
-            Summary of my job experiences so far.
+            Experience in Software Development & Technology
           </Typography>
           <ExperienceItem
             logoSrc={bsd_energy}
