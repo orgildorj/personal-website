@@ -2,7 +2,6 @@
 
 import { Container, Grid2, Typography } from "@mui/material";
 // import Image from "next/image";
-import { styles } from "./styles.js";
 import { motionProps } from "./motionProps";
 // import mongolia_flag from "../pictures/mongolia_flag.png";
 // import selfie from "../pictures/selfie.png";
@@ -39,7 +38,7 @@ function Hero() {
           >
             Orgil Dorj
           </Typography>
-          <Typography sx={styles.sectionSubTitle}>
+          <Typography sx={{ fontSize: 20, opacity: 0.6 }}>
             Thank you for visiting my site!
             <br />I am a master’s student at TUM, seeking a company to
             collaborate with on my master’s thesis. My goal is to build a career
